@@ -263,6 +263,12 @@ Transform:
   - {fileID: 293391799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &120785311 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4967583615090912, guid: 9b4cbb0b3fdc35a41854150787f02766,
+    type: 3}
+  m_PrefabInstance: {fileID: 1848203127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &222876345
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,14 +683,14 @@ MonoBehaviour:
   currentState: 0
   moveSpeed: 5
   rotateSpeed: 10
-  chaseDistance: 5
+  chaseDistance: 10
   waypointDistance: 1
   waypoints:
   - {fileID: 30074306}
   - {fileID: 798293365}
   - {fileID: 1337552218}
   - {fileID: 989426670}
-  player: {fileID: 0}
+  player: {fileID: 120785311}
 --- !u!1 &642098263
 GameObject:
   m_ObjectHideFlags: 0

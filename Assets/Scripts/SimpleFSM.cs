@@ -25,6 +25,7 @@ public class SimpleFSM : FSM
     [SerializeField] private Transform player;
 
     private Transform currentTarget;
+    private float distanceToPlayer;
 
     // Implement the abstract functions
     protected override void Initialize(){
@@ -33,6 +34,10 @@ public class SimpleFSM : FSM
     }
 
     protected override void FSMUpdate(){
+
+         //Check distance to player
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
         switch(currentState){
             case State.Patrol:
                 PatrolBehaviour();
@@ -75,6 +80,7 @@ public class SimpleFSM : FSM
     }
 
     private void PatrolBehaviour(){
+        // Check distance to waypoint
         float distanceToCurrentTarget = Vector3.Distance(transform.position, currentTarget.position);
         if(distanceToCurrentTarget > waypointDistance){
             MoveToTarget();
@@ -82,10 +88,21 @@ public class SimpleFSM : FSM
         else{
             SetTargetWaypoint();
         }
+
+        //Check distance to player
+        if(distanceToPlayer <= chaseDistance){
+            SetCurrentTarget(player);
+            //Switch to chase state
+            currentState = State.Chase;
+        }
     }
 
     private void ChaseBehaviour(){
-
+        MoveToTarget();
+        if(distanceToPlayer > chaseDistance){
+            SetTargetWaypoint();
+            currentState = State.Patrol;
+        }
     }
 
     private void AttackBehaviour(){
