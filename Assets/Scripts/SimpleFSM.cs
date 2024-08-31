@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum State{
-    Patrol,
-    Chase,
-    Attack
-}
 public class SimpleFSM : FSM
 {
-    [SerializeField] private State currentState;
+    [SerializeField] private StateID currentState;
 
     // Movement variables
     [SerializeField] private float moveSpeed = 5.0f;
@@ -29,7 +24,7 @@ public class SimpleFSM : FSM
 
     // Implement the abstract functions
     protected override void Initialize(){
-        currentState = State.Patrol;
+        currentState = StateID.Patrol;
         SetTargetWaypoint();
     }
 
@@ -39,13 +34,13 @@ public class SimpleFSM : FSM
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         switch(currentState){
-            case State.Patrol:
+            case StateID.Patrol:
                 PatrolBehaviour();
                 break;
-             case State.Chase:
+             case StateID.Chase:
                 ChaseBehaviour();
                 break;
-             case State.Attack:
+             case StateID.Attack:
                 AttackBehaviour();
                 break;
         }
@@ -93,7 +88,7 @@ public class SimpleFSM : FSM
         if(distanceToPlayer <= chaseDistance){
             SetCurrentTarget(player);
             //Switch to chase state
-            currentState = State.Chase;
+            currentState = StateID.Chase;
         }
     }
 
@@ -101,7 +96,7 @@ public class SimpleFSM : FSM
         MoveToTarget();
         if(distanceToPlayer > chaseDistance){
             SetTargetWaypoint();
-            currentState = State.Patrol;
+            currentState = StateID.Patrol;
         }
     }
 
