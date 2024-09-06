@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ChaseState : FSMState
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public override void RunState(Transform player, Transform agent){
 
-    // Update is called once per frame
-    void Update()
-    {
+    }
+    public override void CheckTransitionRules(Transform player, Transform agent){
         
     }
 }
