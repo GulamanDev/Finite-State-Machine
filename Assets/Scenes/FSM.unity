@@ -677,13 +677,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 606524904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2635872af6ca7f74dad3c86ec854316f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f57114fe292fdc4e915cf6128db760e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
   moveSpeed: 5
   rotateSpeed: 10
-  chaseDistance: 10
+  chaseDistance: 5
+  attackDistance: 3
   waypointDistance: 1
   waypoints:
   - {fileID: 30074306}
