@@ -13,6 +13,7 @@ public class ChaseState : FSMState
     }
 
     public override void RunState(Transform player, Transform agent){
+        agent.GetComponent<EnemyTankController>().RotateTurret(player);
         controller = agent.GetComponent<EnemyTankController>();
         if(controller == null){
             Debug.LogError("Make sure agent has EnemyTankController");

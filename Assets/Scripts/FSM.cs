@@ -5,6 +5,7 @@ using UnityEngine;
 // Create an abstract class for FSM
 public abstract class FSM : MonoBehaviour
 {
+    private EnemyTankController enemyTankController;
     // Derived classes should use these functions
     protected abstract void Initialize();
     protected abstract void FSMUpdate();

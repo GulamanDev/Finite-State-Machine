@@ -17,6 +17,8 @@ public class PatrolState : FSMState
     }
 
     public override void RunState(Transform player, Transform agent){
+         agent.GetComponent<EnemyTankController>().ResumeMovement();
+         agent.GetComponent<EnemyTankController>().RotateTurret(player);
          controller = agent.GetComponent<EnemyTankController>();
         // Check distance to waypoint
         if(controller == null){
